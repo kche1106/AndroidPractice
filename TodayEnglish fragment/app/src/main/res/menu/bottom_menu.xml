@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/study"
+        android:icon="@drawable/study"
+        android:title="study"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/bookmark"
+        android:icon="@drawable/star"
+        android:title="bookmark"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/home"
+        android:title="home"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/review"
+        android:icon="@drawable/review"
+        android:title="review"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/alarm"
+        android:icon="@drawable/alarm"
+        android:title="alarm"
+        app:showAsAction="always"/>
+
+</menu>
