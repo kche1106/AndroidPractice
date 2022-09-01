@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#5F8AC9"
+    tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/rectangle_2"
+        android:layout_width="351dp"
+        android:layout_height="700dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/Rectangle"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="15dp" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="49dp"
+        android:layout_height="19dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center_horizontal|top"
+        android:text="@string/result"
+        android:textAppearance="@style/result"
+        tools:layout_editor_absoluteX="181dp"
+        tools:layout_editor_absoluteY="69dp"
+        tools:ignore="MissingConstraints" />
+
+    <RelativeLayout
+        android:id="@+id/emojione_1s"
+        android:layout_width="106dp"
+        android:layout_height="104dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/emojione"
+        android:clipToOutline="true"
+        tools:layout_editor_absoluteX="152dp"
+        tools:layout_editor_absoluteY="126dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/find_out_wh"
+        android:layout_width="248dp"
+        android:layout_height="19dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:gravity="top"
+        android:text="@string/find_out_wh"
+        android:textAppearance="@style/find_out_wh"
+        tools:layout_editor_absoluteX="81dp"
+        tools:layout_editor_absoluteY="281dp"
+        tools:ignore="MissingConstraints" />
+
+    <RelativeLayout
+        android:id="@+id/ant_design_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/star3"
+        android:clipToOutline="true"
+        tools:layout_editor_absoluteX="81dp"
+        tools:layout_editor_absoluteY="318dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
