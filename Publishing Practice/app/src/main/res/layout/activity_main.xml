@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,66 +7,114 @@
     android:background="#5F8AC9"
     tools:context=".MainActivity">
 
+
     <View
-        android:id="@+id/rectangle_2"
-        android:layout_width="351dp"
-        android:layout_height="700dp"
+        android:id="@+id/Rectangle"
+        android:layout_width="356dp"
+        android:layout_height="690dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/Rectangle"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="15dp" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/Rectangle" />
 
     <TextView
         android:id="@+id/result"
         android:layout_width="49dp"
         android:layout_height="19dp"
         android:layout_alignParentLeft="true"
+        android:layout_marginLeft="178dp"
         android:layout_alignParentTop="true"
-        android:gravity="center_horizontal|top"
+        android:layout_marginTop="46dp"
         android:text="@string/result"
         android:textAppearance="@style/result"
-        tools:layout_editor_absoluteX="181dp"
-        tools:layout_editor_absoluteY="69dp"
-        tools:ignore="MissingConstraints" />
+        android:gravity="center_horizontal|top"
+        />
 
     <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/emojione_1s"
         android:layout_width="106dp"
         android:layout_height="104dp"
         android:layout_alignParentLeft="true"
+        android:layout_marginLeft="150dp"
         android:layout_alignParentTop="true"
-        android:background="@drawable/emojione"
+        android:layout_marginTop="94dp"
         android:clipToOutline="true"
-        tools:layout_editor_absoluteX="152dp"
-        tools:layout_editor_absoluteY="126dp"
-        tools:ignore="MissingConstraints" />
+        android:background="@drawable/emojione"
+        />
+
+    <TextView
+        android:id="@+id/i_might_as_"
+        android:layout_width="293dp"
+        android:layout_height="19dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="275dp"
+        android:gravity="top"
+        android:text="@string/i_might_as_"
+        android:textAppearance="@style/i_might_as_" />
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ant_design_"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="305dp"
+        android:background="@drawable/star1"
+        android:clipToOutline="true" />
+
+    <TextView
+        android:id="@+id/i_want_to_g"
+        android:layout_width="248dp"
+        android:layout_height="19dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="47dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="354dp"
+        android:text="@string/i_want_to_g"
+        android:textAppearance="@style/i_want_to_g"
+        android:gravity="top"
+        />
+
+
+    <RelativeLayout
+        android:id="@+id/star3"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="384dp"
+        android:background="@drawable/star3"
+        android:clipToOutline="true" />
 
     <TextView
         android:id="@+id/find_out_wh"
         android:layout_width="248dp"
         android:layout_height="19dp"
         android:layout_alignParentLeft="true"
+        android:layout_marginLeft="45dp"
         android:layout_alignParentTop="true"
-        android:gravity="top"
+        android:layout_marginTop="433dp"
         android:text="@string/find_out_wh"
         android:textAppearance="@style/find_out_wh"
-        tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="281dp"
-        tools:ignore="MissingConstraints" />
+        android:gravity="top"
+        />
 
     <RelativeLayout
-        android:id="@+id/ant_design_"
+        android:id="@+id/star2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/star3"
-        android:clipToOutline="true"
-        tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="318dp" />
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="463dp"
+        android:background="@drawable/star2"
+        android:clipToOutline="true" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
