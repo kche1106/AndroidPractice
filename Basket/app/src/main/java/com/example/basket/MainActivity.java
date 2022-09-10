@@ -1,29 +1,39 @@
 package com.example.basket;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity
+{
+    TextView device, barcodeId, barcodeType, amount;
+    Button add_button;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        EditText device_input = findViewById(R.id.device_input);
-        EditText barcodeId_input = findViewById(R.id.barcodeId_input);
-        EditText amount_input = findViewById(R.id.amount_input);
-        Button add_button = findViewById(R.id.add_button);
+        device = findViewById(R.id.device);
+        barcodeId = findViewById(R.id.barcodeId);
+        barcodeType = findViewById(R.id.barcodeType);
+        amount = findViewById(R.id.amount);
+        add_button = findViewById(R.id.add_button);
 
-        add_button.setOnClickListener(new View.OnClickListener() {
+        add_button.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
-                BasketDBHelper basketDBHelper = new BasketDBHelper(MainActivity.this);
-                basketDBHelper.addBasket(Integer.parseInt(device_input.getText().toString().trim()), barcodeId_input.getText().toString().trim(), Integer.parseInt(amount_input.getText().toString().trim()));
+            public void onClick(View v)
+            {
+                DBHelper dbHelper = new DBHelper(MainActivity.this);
+
+                dbHelper.addItem("6789", "88", "초코 우유", "1500", "유제품");
+                dbHelper.addBasket(device.getText().toString().trim(), barcodeId.getText().toString().trim(),
+                        barcodeType.getText().toString().trim(), amount.getText().toString().trim());
             }
         });
     }
