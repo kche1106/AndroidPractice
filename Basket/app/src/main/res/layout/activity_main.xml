@@ -7,39 +7,73 @@
     android:padding="30sp">
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:text="디바이스 번호"
+        android:textSize="15dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
         android:id="@+id/device"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1"
-        android:textSize="100dp"
-        tools:ignore="MissingConstraints" />
+        android:textSize="15dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="2dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="바코드 유형"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="33dp" />
 
     <TextView
         android:id="@+id/barcodeType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="88"
-        tools:layout_editor_absoluteX="86dp"
-        tools:layout_editor_absoluteY="-1dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="35dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="바코드 번호"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="72dp" />
 
     <TextView
         android:id="@+id/barcodeId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="012345"
-        tools:layout_editor_absoluteX="86dp"
-        tools:layout_editor_absoluteY="30dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="72dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="수량"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="121dp" />
 
     <TextView
         android:id="@+id/amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1"
-        tools:layout_editor_absoluteX="86dp"
-        tools:layout_editor_absoluteY="68dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="121dp" />
 
     <Button
         android:id="@+id/add_button"
@@ -47,7 +81,43 @@
         android:layout_height="wrap_content"
         android:text="장바구니 추가"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="150dp" />
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="170dp" />
+
+    <Button
+        android:id="@+id/show_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="장바구니 조회"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="248dp" />
+
+    <EditText
+        android:id="@+id/edtBarcodeType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="343dp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/edtBarcodeId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:layout_editor_absoluteX="195dp"
+        tools:layout_editor_absoluteY="343dp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/edtAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="507dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
