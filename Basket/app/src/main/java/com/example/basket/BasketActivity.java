@@ -6,11 +6,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class BasketActivity extends AppCompatActivity {
 
@@ -18,6 +20,8 @@ public class BasketActivity extends AppCompatActivity {
     SQLiteDatabase db;   // db를 다루기 위한 SQLiteDatabase 객체 생성
     Cursor cursor;   // select 문 출력위해 사용하는 Cursor 형태 객체 생성
     ListView listView;   // ListView 객체 생성
+    String selected_item_str;  //선택한 상품의 문자열
+    int selected_item_id;  //선택한 상품의 인덱스
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,16 +45,31 @@ public class BasketActivity extends AppCompatActivity {
 
             cursor.moveToNext();   // 첫번째에서 다음 레코드가 없을때까지 읽음
 
+            String basketId = cursor.getString(0);
             String barcodeType = cursor.getString(2);
             String barcodeId = cursor.getString(3);
             String amount = cursor.getString(4);
 
-            items.add(0, "바코드 번호: " + barcodeType + barcodeId + " 수량: " + amount);   // 각각의 속성값들을 해당 배열의 i번째에 저장
+            items.add(i, basketId + " | 바코드 번호: " + barcodeType + barcodeId + " 수량: " + amount);   // 각각의 속성값들을 해당 배열의 i번째에 저장
         }
 
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_single_choice, items);
         listView.setAdapter(adapter);   // listView 객체에 Adapter를 붙인다
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView,
+                                    View view, int position, long id) {
+
+                //클릭한 아이템의 문자열을 가져옴
+                selected_item_str = (String)adapterView.getItemAtPosition(position);
+
+                StringTokenizer stringTokenizer = new StringTokenizer(selected_item_str);
+                //문자열을 숫자로 변경
+                selected_item_id = Integer.parseInt(stringTokenizer.nextToken());
+            }
+        });
 
         Button btn_delete = (Button)findViewById(R.id.delete) ;
         btn_delete.setOnClickListener(new Button.OnClickListener() {
@@ -61,6 +80,7 @@ public class BasketActivity extends AppCompatActivity {
                 if (count > 0) {
                     // 현재 선택된 아이템의 position 획득.
                     checked = listView.getCheckedItemPosition();
+                    System.out.println("checked = " + checked);
 
                     if (checked > -1 && checked < count) {
                         // 아이템 삭제
@@ -72,7 +92,7 @@ public class BasketActivity extends AppCompatActivity {
                         // listview 갱신.
                         adapter.notifyDataSetChanged();
 
-                        db.execSQL("DELETE FROM basket WHERE basket_id = '" + checked + "';");
+                        db.execSQL("DELETE FROM basket WHERE basket_id = '" + selected_item_id + "';");
                     }
                 }
             }
