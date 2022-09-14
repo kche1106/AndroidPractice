@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity
             {
                 DBHelper dbHelper = new DBHelper(MainActivity.this);
 
-                dbHelper.addItem("6789", "88", "초코 우유", "1500", "유제품");
+//                dbHelper.addItem("6789", "88", "초코 우유", "1500", "유제품");
                 dbHelper.addBasket(device.getText().toString().trim(), barcodeId.getText().toString().trim(),
                         barcodeType.getText().toString().trim(), amount.getText().toString().trim());
             }
