@@ -20,6 +20,20 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Delete" />
+
+        <Button
+            android:id="@+id/amountAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="수량 추가" />
+
+        <Button
+            android:id="@+id/amountDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="수량 감소" />
     </LinearLayout>
 
 </LinearLayout>

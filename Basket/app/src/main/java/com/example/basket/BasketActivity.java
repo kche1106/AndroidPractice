@@ -71,8 +71,8 @@ public class BasketActivity extends AppCompatActivity {
             }
         });
 
-        Button btn_delete = (Button)findViewById(R.id.delete) ;
-        btn_delete.setOnClickListener(new Button.OnClickListener() {
+        Button delete = (Button)findViewById(R.id.delete) ;
+        delete.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 int count, checked ;
                 count = adapter.getCount() ;
@@ -97,5 +97,84 @@ public class BasketActivity extends AppCompatActivity {
                 }
             }
         }) ;
+
+        Button amountAdd = (Button) findViewById(R.id.amountAdd);
+        amountAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int count, checked ;
+                count = adapter.getCount() ;
+
+                if (count > 0) {
+                    // 현재 선택된 아이템의 position 획득.
+                    checked = listView.getCheckedItemPosition();
+
+                    if (checked > -1 && checked < count) {
+
+                        db.execSQL("UPDATE basket SET amount = amount + 1 WHERE basket_id = '" + selected_item_id + "';");
+
+                        Cursor cursor = db.rawQuery("SELECT * FROM basket WHERE basket_id = '" + selected_item_id + "';", null) ;
+
+                        cursor.moveToFirst();
+
+                        String basketId = cursor.getString(0);
+                        String barcodeType = cursor.getString(2);
+                        String barcodeId = cursor.getString(3);
+                        String amount = cursor.getString(4);
+
+                        items.set(checked, basketId + " | 바코드 번호: " + barcodeType + barcodeId + " 수량: " + amount);
+
+                        // listview 갱신.
+                        adapter.notifyDataSetChanged();
+                    }
+                }
+            }
+        });
+
+        Button amountDelete = (Button) findViewById(R.id.amountDelete);
+        amountDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int count, checked ;
+                count = adapter.getCount() ;
+
+                if (count > 0) {
+                    // 현재 선택된 아이템의 position 획득.
+                    checked = listView.getCheckedItemPosition();
+
+                    if (checked > -1 && checked < count) {
+
+                        db.execSQL("UPDATE basket SET amount = amount - 1 WHERE basket_id = '" + selected_item_id + "';");
+
+                        Cursor cursor = db.rawQuery("SELECT * FROM basket WHERE basket_id = '" + selected_item_id + "';", null) ;
+                        cursor.moveToFirst();
+
+                        String basketId = cursor.getString(0);
+                        String barcodeType = cursor.getString(2);
+                        String barcodeId = cursor.getString(3);
+                        String amount = cursor.getString(4);
+
+                        if(Integer.parseInt(amount) <= 0) {
+                            // 아이템 삭제
+                            items.remove(checked) ;
+
+                            // listview 선택 초기화.
+                            listView.clearChoices();
+
+                            // listview 갱신.
+                            adapter.notifyDataSetChanged();
+
+                            db.execSQL("DELETE FROM basket WHERE basket_id = '" + selected_item_id + "';");
+                        }
+                        else {
+                            items.set(checked, basketId + " | 바코드 번호: " + barcodeType + barcodeId + " 수량: " + amount);
+
+                            // listview 갱신
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+            }
+        });
     }
 }
